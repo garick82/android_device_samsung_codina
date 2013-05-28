@@ -1,4 +1,5 @@
-DEVICE_PACKAGE_OVERLAYS := device/samsung/codina/overlay
+LOCAL_PATH := device/samsung/codina
+DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
 
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
@@ -32,27 +33,27 @@ PRODUCT_COPY_FILES += \
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
-    device/samsung/codina/prebuilt/kernel:kernel \
-    device/samsung/codina/prebuilt/root/default.prop:root/default.prop \
-    device/samsung/codina/prebuilt/root/init.samsungcodina.rc:root/init.samsungcodina.rc \
-    device/samsung/codina/prebuilt/root/init.samsungcodina.usb.rc:root/init.samsungcodina.usb.rc \
-    device/samsung/codina/prebuilt/root/ueventd.samsungcodina.rc:root/ueventd.samsungcodina.rc \
-    device/samsung/codina/prebuilt/root/fstab.samsungcodina:root/fstab.samsungcodina \
-    device/samsung/codina/prebuilt/root/lib/modules/j4fs.ko:root/lib/modules/j4fs.ko \
-    device/samsung/codina/prebuilt/root/lib/modules/param.ko:root/lib/modules/param.ko
+    $(LOCAL_PATH)/prebuilt/kernel:kernel \
+    $(LOCAL_PATH)/prebuilt/root/default.prop:root/default.prop \
+    $(LOCAL_PATH)/prebuilt/root/init.samsungcodina.rc:root/init.samsungcodina.rc \
+    $(LOCAL_PATH)/prebuilt/root/init.samsungcodina.usb.rc:root/init.samsungcodina.usb.rc \
+    $(LOCAL_PATH)/prebuilt/root/ueventd.samsungcodina.rc:root/ueventd.samsungcodina.rc \
+    $(LOCAL_PATH)/prebuilt/root/fstab.samsungcodina:root/fstab.samsungcodina \
+    $(LOCAL_PATH)/prebuilt/root/lib/modules/j4fs.ko:root/lib/modules/j4fs.ko \
+    $(LOCAL_PATH)/prebuilt/root/lib/modules/param.ko:root/lib/modules/param.ko
 
 # Display
 PRODUCT_COPY_FILES += \
-    device/samsung/codina/prebuilt/system/lib/hw/hwcomposer.montblanc.so:system/lib/hw/hwcomposer.montblanc.so \
-    device/samsung/codina/prebuilt/system/lib/hw/gralloc.montblanc.so:system/lib/hw/gralloc.montblanc.so	
+    $(LOCAL_PATH)/prebuilt/system/lib/hw/hwcomposer.montblanc.so:system/lib/hw/hwcomposer.montblanc.so \
+    $(LOCAL_PATH)/prebuilt/system/lib/hw/gralloc.montblanc.so:system/lib/hw/gralloc.montblanc.so	
 
 # Mali-400
 PRODUCT_COPY_FILES += \
-    device/samsung/codina/prebuilt/system/lib/egl/libEGL_mali.so:system/lib/egl/libEGL_mali.so \
-    device/samsung/codina/prebuilt/system/lib/egl/libGLESv1_CM_mali.so:system/lib/egl/libGLESv1_CM_mali.so \
-    device/samsung/codina/prebuilt/system/lib/egl/libGLESv2_mali.so:system/lib/egl/libGLESv2_mali.so \
-    device/samsung/codina/prebuilt/system/lib/libMali.so:system/lib/libMali.so \
-    device/samsung/codina/prebuilt/system/lib/libUMP.so:system/lib/libUMP.so
+    $(LOCAL_PATH)/prebuilt/system/lib/egl/libEGL_mali.so:system/lib/egl/libEGL_mali.so \
+    $(LOCAL_PATH)/prebuilt/system/lib/egl/libGLESv1_CM_mali.so:system/lib/egl/libGLESv1_CM_mali.so \
+    $(LOCAL_PATH)/prebuilt/system/lib/egl/libGLESv2_mali.so:system/lib/egl/libGLESv2_mali.so \
+    $(LOCAL_PATH)/prebuilt/system/lib/libMali.so:system/lib/libMali.so \
+    $(LOCAL_PATH)/prebuilt/system/lib/libUMP.so:system/lib/libUMP.so
 
 # Wifi
 PRODUCT_COPY_FILES += \
@@ -64,8 +65,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Misc
 PRODUCT_COPY_FILES += \
-    device/samsung/codina/prebuilt/system/etc/vold.fstab:system/etc/vold.fstab \
-    device/samsung/codina/prebuilt/system/etc/media_codecs.xml:system/etc/media_codecs.xml \
-    device/samsung/codina/prebuilt/system/etc/media_profiles.xml:system/etc/media_profiles.xml
+    $(LOCAL_PATH)/prebuilt/system/etc/vold.fstab:system/etc/vold.fstab \
+    $(LOCAL_PATH)/prebuilt/system/etc/media_codecs.xml:system/etc/media_codecs.xml \
+    $(LOCAL_PATH)/prebuilt/system/etc/media_profiles.xml:system/etc/media_profiles.xml
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
