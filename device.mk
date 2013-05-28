@@ -1,11 +1,15 @@
 LOCAL_PATH := device/samsung/codina
+
+# Overlay
 DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
 
+# This device is HDPI
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
+# Packages
 PRODUCT_PACKAGES += \
     audio.primary.montblanc \
     audio.a2dp.default \
@@ -70,7 +74,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=15
 
-# Misc
+# OMX
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/system/etc/vold.fstab:system/etc/vold.fstab \
     $(LOCAL_PATH)/prebuilt/system/etc/media_codecs.xml:system/etc/media_codecs.xml \
