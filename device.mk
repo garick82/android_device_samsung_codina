@@ -54,6 +54,14 @@ PRODUCT_COPY_FILES += \
     device/samsung/codina/prebuilt/system/lib/libMali.so:system/lib/libMali.so \
     device/samsung/codina/prebuilt/system/lib/libUMP.so:system/lib/libUMP.so
 
+# Wifi
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    wifi.interface=wlan0 \
+    wifi.supplicant_scan_interval=15
+
 # Misc
 PRODUCT_COPY_FILES += \
     device/samsung/codina/prebuilt/system/etc/vold.fstab:system/etc/vold.fstab \
