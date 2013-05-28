@@ -55,6 +55,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/system/lib/libMali.so:system/lib/libMali.so \
     $(LOCAL_PATH)/prebuilt/system/lib/libUMP.so:system/lib/libUMP.so
 
+# RIL
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.ril_class=Smdk4210RIL \
+    mobiledata.interfaces=pdp0,wlan0,gprs,ppp0 \
+    ro.ril.hsxpa=1 \
+    ro.ril.gprsclass=10
+
 # Wifi
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
