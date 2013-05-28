@@ -11,9 +11,8 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 
 # Packages
 PRODUCT_PACKAGES += \
-    audio.primary.montblanc \
     audio.a2dp.default \
-    libaudiohw_legacy
+    lights.montblanc
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
