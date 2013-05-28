@@ -40,8 +40,13 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000
 
 # Graphics
 BOARD_EGL_CFG := device/samsung/codina/prebuilt/system/lib/egl/egl.cfg
-BOARD_EGL_NEEDS_LEGACY_FB := true
 USE_OPENGL_RENDERER := true
+
+# Enable WEBGL in Webkit
+ENABLE_WEBGL := true
+
+# HWComposer
+BOARD_USES_HWCOMPOSER := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
