@@ -1,6 +1,11 @@
-LOCAL_PATH := device/samsung/codina
+#
+#
+# Team SakuraDroid @ www.sakuradroid.org
+#
+# Shaaan @ XDA-Developers
+#
+#
 
-# Overlay
 DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
 
 # This device is HDPI
