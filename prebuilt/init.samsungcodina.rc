@@ -1,6 +1,6 @@
-import /init.${ro.hardware}.usb.rc
+import /init.samsungcodina.usb.rc
 
-on init
+on early-init
     mkdir /mnt/shell/emulated 0700 shell shell
     mkdir /storage/emulated 0555 root root
     mkdir /storage/sdcard1 0775 system system
@@ -19,8 +19,10 @@ on init
     symlink /storage/usbdisk0 /mnt/usbdisk0
 
 on init
+    export PATH /system/sbin:/system/bin:/system/xbin:/sbin:/bin:/vendor/bin
+    export LD_LIBRARY_PATH /system/lib:/lib:/usr/lib:/system/lib/ste_omxcomponents/:/vendor/lib
     export OMX_STE_ENS_COMPONENTS_DIR /system/lib/ste_omxcomponents/
-    export OMX_BELLAGIO_LOADER_REGISTRY /system/etc/omxloaders
+    export OMX_BELLAGIO_LOADER_REGISTRY /system/omxloaders
     mkdir /modemfs 0771 system system
     mkdir /efs 0775 radio system
     mkdir /dev/shm 0700 root system
@@ -31,6 +33,10 @@ on init
     mkdir /mnt/.lfs 0755 root root
     mkdir /debug
     mount debugfs none /debug
+
+    # create /tmp directory needed by psccd and CSPSA
+    # ...but make it a symlink so that sysmon may use it also
+    symlink /dev/socket /tmp
 
 on fs
     mount_all /fstab.samsungcodina
@@ -54,6 +60,7 @@ on post-fs
     chmod 0644 /modemfs/PERM/PROT/LABEP.CFG
     chown radio radio /modemfs/PERM/PROT/PPVALUES.DAT
     chmod 0644 /modemfs/PERM/PROT/PPVALUES.DAT
+
     chown radio system /efs
     chmod 0775 /efs
     chown radio system /efs/FactoryApp
@@ -62,6 +69,7 @@ on post-fs
     chmod 0770 /efs/imei
     chown radio system /efs/bluetooth
     chown radio system /efs/wifi
+
     chown system system /sys/power/state
     chown system system /sys/power/wakeup_count
     chown radio system /sys/power/wake_lock
@@ -69,16 +77,19 @@ on post-fs
     chmod 0660 /sys/power/state
     chmod 0660 /sys/power/wake_lock
     chmod 0660 /sys/power/wake_unlock
+
     chown root system /dev/mmc328x
     chown root system /dev/bma222
     chown root system /dev/ecompass_ctrl
     chmod 0666 /dev/mmc328x
     chmod 0666 /dev/bma222
     chmod 0666 /dev/ecompass_ctrl
+
     chown root system /dev/alps_io
     chmod 0660 /dev/alps_io
     chown root root /dev/rn5t592
     chmod 777 /dev/rn5t592
+
     chown system radio /sys/class/sec/tsp/cmd
     chown system radio /sys/class/sec/tsp/cmd_status
     chown system radio /sys/class/sec/tsp/cmd_result
@@ -91,6 +102,7 @@ on post-fs
     chown system radio /sys/class/sec/sec_touchkey/touchkey_threshold
     chown system radio /sys/class/sec/sec_touchscreen/tsp_firm_version_panel
     chown system radio /sys/class/sec/sec_touchscreen/tsp_firm_version_phone
+
     chmod 0666 /dev/gp2a_prox
     chmod 0666 /dev/gp2a_light
     chmod 0666 /dev/mpu60x0_gyro
@@ -102,12 +114,14 @@ on post-fs
     chmod 0660 /dev/alps_compass_io
     chown root system /dev/dyna
     chmod 0660 /dev/dyna
+
     chown system system /system/etc/sensors.dat
     chown system system /system/etc/calib.dat
     chown system system /system/etc/param.dat
     chmod 0664 /system/etc/sensors.dat
     chmod 0664 /system/etc/calib.dat
     chmod 0664 /system/etc/param.dat
+
     chown system input /sys/class/input/input2/enable
     chown system input /sys/class/input/input2/poll_delay
     chown system input /sys/class/input/input3/enable
@@ -210,16 +224,19 @@ on post-fs
     chown system radio /sys/class/sensors/light_sensor/raw_data
     chown system radio /sys/class/sensors/light_sensor/vendor
     chown system radio /sys/class/sensors/light_sensor/name
+
     chown radio system /sys/power/cpufreq_table
     chown radio system /sys/power/cpufreq_max_limit
     chown radio system /sys/power/cpufreq_min_limit
     chmod 0660 /sys/power/cpufreq_table
     chmod 0660 /sys/power/cpufreq_max_limit
     chmod 0660 /sys/power/cpufreq_min_limit
+
     chown radio system /debug/prcmu/ape_opp
     chown radio system /debug/prcmu/ddr_opp
     chmod 0660 /debug/prcmu/ape_opp
     chmod 0660 /debug/prcmu/ddr_opp
+
     insmod /lib/modules/j4fs.ko
     mount j4fs /dev/block/mmcblk0p19 /mnt/.lfs wait
     symlink /dev/block/mmcblk0p19 /dev/block/param
@@ -264,6 +281,7 @@ on boot
     chown system system /sys/class/backlight/pwm-backlight/device/gamma_table
     chown radio radio /sys/class/usb_switch/FSA_SWITCH/jig_smd
     chown radio system /sys/class/usb_switch/FSA_SWITCH/smd_wakelock
+
     chown system system /sys/devices/platform/nmk-i2c.2/i2c-2/2-005c/enable
     chown system system /sys/devices/platform/nmk-i2c.2/i2c-2/2-0029/power_state
     chown system system /sys/devices/platform/nmk-i2c.2/i2c-2/2-0068/range
