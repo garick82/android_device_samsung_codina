@@ -14,14 +14,11 @@ PRODUCT_AAPT_PREF_CONFIG := hdpi
 
 # Init Files
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/kernel:kernel \
-    $(LOCAL_PATH)/prebuilt/root/default.prop:root/default.prop \
-    $(LOCAL_PATH)/prebuilt/root/init.samsungcodina.rc:root/init.samsungcodina.rc \
-    $(LOCAL_PATH)/prebuilt/root/init.samsungcodina.usb.rc:root/init.samsungcodina.usb.rc \
-    $(LOCAL_PATH)/prebuilt/root/ueventd.samsungcodina.rc:root/ueventd.samsungcodina.rc \
-    $(LOCAL_PATH)/prebuilt/root/fstab.samsungcodina:root/fstab.samsungcodina \
-    $(LOCAL_PATH)/prebuilt/root/lib/modules/j4fs.ko:root/lib/modules/j4fs.ko \
-    $(LOCAL_PATH)/prebuilt/root/lib/modules/param.ko:root/lib/modules/param.ko
+    $(LOCAL_PATH)/rootdir/default.prop:root/default.prop \
+    $(LOCAL_PATH)/rootdir/init.samsungcodina.rc:root/init.samsungcodina.rc \
+    $(LOCAL_PATH)/rootdir/init.samsungcodina.usb.rc:root/init.samsungcodina.usb.rc \
+    $(LOCAL_PATH)/rootdir/ueventd.samsungcodina.rc:root/ueventd.samsungcodina.rc \
+    $(LOCAL_PATH)/rootdir/fstab.samsungcodina:root/fstab.samsungcodina
 
 # STE
 PRODUCT_COPY_FILES += \
@@ -111,8 +108,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # OMX
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/system/etc/media_codecs.xml:system/etc/media_codecs.xml \
-    $(LOCAL_PATH)/prebuilt/system/etc/media_profiles.xml:system/etc/media_profiles.xml
+    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
