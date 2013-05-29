@@ -134,3 +134,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
 
 $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
+
+# Use non-open-source parts if present
+$(call inherit-product-if-exists, vendor/samsung/codina/codina-vendor.mk)
