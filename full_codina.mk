@@ -8,4 +8,4 @@ PRODUCT_BRAND := samsung
 PRODUCT_MODEL := GT-I8160
 PRODUCT_MANUFACTURER := samsung
 
-$(call inherit-product, device/samsung/codina/device.mk)
+$(call inherit-product, device/samsung/codina/codina.mk)
