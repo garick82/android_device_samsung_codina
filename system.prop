@@ -24,4 +24,8 @@ ste.video.dec.mpeg4.in.size=8192
 ste.video.dec.recycle.delay=1
 ste.video.enc.out.buffercnt=5
 
+# Cache to /data, no /cache partition is available.
 dalvik.vm.dexopt-data-only=1
+
+# Wifi
+wifi.supplicant_scan_interval=80
