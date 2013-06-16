@@ -24,5 +24,5 @@ ste.video.dec.mpeg4.in.size=8192
 ste.video.dec.recycle.delay=1
 ste.video.enc.out.buffercnt=5
 wifi.interface=wlan0
-wifi.supplicant_scan_interval=80
+wifi.supplicant_scan_interval=150
 dalvik.vm.dexopt-data-only=1
