@@ -60,4 +60,4 @@ PRODUCT_COPY_FILES += \
     device/samsung/codina/prebuilt/system/etc/media_codecs.xml:system/etc/media_codecs.xml \
     device/samsung/codina/prebuilt/system/etc/media_profiles.xml:system/etc/media_profiles.xml
 
-$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
